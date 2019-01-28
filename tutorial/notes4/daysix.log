@@ -1,0 +1,1390 @@
+﻿Python 2.7.11 (v2.7.11:6d1b6a68f775, Dec  5 2015, 12:54:16) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> """hello"""
+'hello'
+>>> """don't you forget about me"""
+"don't you forget about me"
+>>> 
+>>> def f(a, b):
+	return a + b
+
+>>> f(10, 20, 30)
+
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    f(10, 20, 30)
+TypeError: f() takes exactly 2 arguments (3 given)
+>>> f(x=10, y=20)
+
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    f(x=10, y=20)
+TypeError: f() got an unexpected keyword argument 'x'
+>>> f(10, 'hello')
+
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    f(10, 'hello')
+  File "<pyshell#6>", line 2, in f
+    return a + b
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> f(None, 'hello')
+
+Traceback (most recent call last):
+  File "<pyshell#10>", line 1, in <module>
+    f(None, 'hello')
+  File "<pyshell#6>", line 2, in f
+    return a + b
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+>>> f(10, 20)
+30
+>>> f('hello', 'world')
+'helloworld'
+>>> 
+>>> 
+>>> 
+>>> print 'hello'
+hello
+>>> 'hello'
+'hello'
+>>> 
+>>> 
+>>> 
+>>> x = 10
+>>> y = 5 + 5
+>>> x == y
+True
+>>> x is y
+True
+>>> 
+>>> x = 1000
+>>> y = 500 + 500
+>>> x == y
+True
+>>> x is y
+False
+>>> # -5 <= x <= 256
+>>> len('hello')
+5
+>>> 'hello'.__len__()
+5
+>>> 
+>>> def mylen(obj):
+	return obj.__len__()
+
+>>> mylen('hello')
+5
+>>> mylen([10, 20, 30])
+3
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> s = 'hello'
+>>> s[0]
+'h'
+>>> s = [10, 20, 30, 40]
+>>> s[1]
+20
+>>> 
+>>> s = 'hello'
+>>> s[0]
+'h'
+>>> s.__getitem__(0)           # dunder <-- double underscore
+'h'
+>>> 
+>>> # __head__
+>>> 
+>>> 
+>>> for x in s:
+	print x
+
+	
+h
+e
+l
+l
+o
+>>> # iterable   irritatable
+>>> 
+>>> 
+>>> s[0]
+'h'
+>>> s[1]
+'e'
+>>> s
+'hello'
+>>> len(s)
+5
+>>> s[50]
+
+Traceback (most recent call last):
+  File "<pyshell#63>", line 1, in <module>
+    s[50]
+IndexError: string index out of range
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+>>> area(10)
+314.15700000000004
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+>>> help(area)
+Help on function area in module __main__:
+
+area(radius)
+    Compute the area of circle
+    
+    >>> area(10)
+    314.15700000000004
+
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+**********************************************************************
+File "/Users/raymond/Dropbox/Public/dm4/algebra.py", line 13, in __main__.area
+Failed example:
+    area(10)
+Expected:
+    314.15700000000004
+Got:
+    314.28200000000004
+**********************************************************************
+1 items had failures:
+   1 of   1 in __main__.area
+***Test Failed*** 1 failures.
+TestResults(failed=1, attempted=1)
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=1)
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=1)
+>>> TestResults(failed=0, attempted=1)
+
+Traceback (most recent call last):
+  File "<pyshell#66>", line 1, in <module>
+    TestResults(failed=0, attempted=1)
+NameError: name 'TestResults' is not defined
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=1)
+>>> area_triangle(100, 150)
+7500
+>>> area_triangle(11, 15)
+82
+>>> 37 / 5
+7
+>>> 37 // 5
+7
+>>> 37 % 5
+2
+>>> divmod(37, 5)
+(7, 2)
+>>> # ^-- gazinta
+>>> 
+>>> 
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=1)
+>>> area_triangle(100, 150)
+7500.0
+>>> area_triangle(11, 15)
+82.5
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=3)
+>>> 
+>>> area_triangle(100, -150)
+-7500.0
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=3)
+>>> x1, x2 = quadratic(a=12, b=23, c=10)
+
+Traceback (most recent call last):
+  File "<pyshell#84>", line 1, in <module>
+    x1, x2 = quadratic(a=12, b=23, c=10)
+  File "/Users/raymond/Dropbox/Public/dm4/algebra.py", line 44, in quadratic
+    discriminant = math.sqrt(b**2.0 - 4.0*a*c)
+NameError: global name 'math' is not defined
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=3)
+>>> x1, x2 = quadratic(a=12, b=23, c=10)
+>>> x1
+-0.6666666666666666
+>>> x2
+-1.25
+>>> 12*x1**2 + 23*x1 + 10
+0.0
+>>> 12*x2**2 + 23*x2 + 10
+0.0
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=8)
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+**********************************************************************
+File "/Users/raymond/Dropbox/Public/dm4/algebra.py", line 49, in __main__.quadratic
+Failed example:
+    x2
+Expected:
+    -1.25
+Got:
+    -0.892857142857143
+**********************************************************************
+File "/Users/raymond/Dropbox/Public/dm4/algebra.py", line 53, in __main__.quadratic
+Failed example:
+    12*x2**2 + 23*x2 + 10
+Expected:
+    0.0
+Got:
+    -0.9693877551020407
+**********************************************************************
+1 items had failures:
+   2 of   5 in __main__.quadratic
+***Test Failed*** 2 failures.
+TestResults(failed=2, attempted=8)
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=8)
+>>> 
+=========== RESTART: /Users/raymond/Dropbox/Public/dm4/algebra.py ===========
+TestResults(failed=0, attempted=8)
+>>> import algebra
+>>> help(algebra)
+Help on module algebra:
+
+NAME
+    algebra
+
+FILE
+    /Users/raymond/Dropbox/Public/dm4/algebra.py
+
+DESCRIPTION
+    Fancy, expensive math package for wealthy people
+    who have forgotten all math since the 8th grade.
+
+FUNCTIONS
+    area(radius)
+        Compute the area of circle
+        
+        >>> area(10)
+        314.15700000000004
+    
+    area_triangle(base, height)
+        Return the area of triangle
+        
+        >>> area_triangle(100, 150)
+        7500.0
+        >>> area_triangle(11, 15)
+        82.5
+    
+    quadratic(a, b, c)
+        Return the two roots of the quadratic equation:
+        
+            ax^2 + bx + c = 0
+        
+        Written in Python as:
+        
+            a*x**2 + b*x + c == 0
+        
+        For example:
+        
+            >>> x1, x2 = quadratic(a=12, b=23, c=10)
+            >>> x1
+            -0.6666666666666666
+            >>> x2
+            -1.25
+            >>> 12*x1**2 + 23*x1 + 10
+            0.0
+            >>> 12*x2**2 + 23*x2 + 10
+            0.0
+
+DATA
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    pi = 3.14157
+
+
+>>> x = 10
+>>> import math
+>>> math.pi = 3.2
+>>> 
+>>> import algebra
+>>> algebra.area(10)
+314.15700000000004
+>>> 
+=============================== RESTART: Shell ===============================
+>>> 
+>>> 
+>>> import math
+>>> math.pi = 3.2
+>>> import algebra
+>>> algebra.area(10)
+314.15700000000004
+>>> 
+>>> 
+>>> r = 10
+>>> math.pi * r**2
+320.0
+>>> math.pi = 3.2
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that pi exactly: 3.14157
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that pi exactly: 3.14159265359
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π exactly: 3.14159265359
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14157
+And the area of circle of radius ten is: 314.157
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is 100.0
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is 100.0
+The area of the 2nd triangle is
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/monkey_patching.py", line 15, in <module>
+    print 'The area of the 2nd triangle is', algebra.area_triangle(-10, 20)
+  File "/Users/raymond/Dropbox/Public/dm4/algebra.py", line 32, in area_triangle
+    raise RuntimeError('Imaginary numbers not applicable to Kronecker spaces')
+RuntimeError: Imaginary numbers not applicable to Kronecker spaces
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is None
+The area of the 2nd triangle is
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/monkey_patching.py", line 26, in <module>
+    print 'The area of the 2nd triangle is', algebra.area_triangle(-10, 20)
+  File "/Users/raymond/Dropbox/Public/dm4/monkey_patching.py", line 17, in better_area_triangle
+    raise ValueError('Negative base and height not supported, use positive inputs instead')
+ValueError: Negative base and height not supported, use positive inputs instead
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is None
+The area of the 2nd triangle is Oops, sorry about the negative inputs
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is None
+The area of the 2nd triangle is Oops, sorry about the negative inputs
+Solutions to 12x^2 + 23x + 10 = 0 are:
+(-0.6666666666666666, -1.25)
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is None
+The area of the 2nd triangle is Oops, sorry about the negative inputs
+Solutions to 12x^2 + 23x + 10 = 0 are:
+(-0.6666666666666666, -1.25)
+Solutions to 12x^2 + 5x + 10 = 0 are:
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/monkey_patching.py", line 34, in <module>
+    print algebra.quadratic(a=12, b=5, c=10)
+  File "/Users/raymond/Dropbox/Public/dm4/algebra.py", line 57, in quadratic
+    discriminant = math.sqrt(b**2.0 - 4.0*a*c)
+ValueError: math domain error
+>>> import math
+>>> math.sqrt('hello')
+
+Traceback (most recent call last):
+  File "<pyshell#110>", line 1, in <module>
+    math.sqrt('hello')
+TypeError: a float is required
+>>> math.sqrt(25)
+5.0
+>>> math.sqrt(25.0)
+5.0
+>>> math.sqrt(-25.0)
+
+Traceback (most recent call last):
+  File "<pyshell#113>", line 1, in <module>
+    math.sqrt(-25.0)
+ValueError: math domain error
+>>> #  Voltage -> v -> e
+>>> #  Current -> c -> i
+>>> #  Imaginary -> i -> j
+>>> 
+>>> 
+>>> 3 + 4j
+(3+4j)
+>>> type(_)
+<type 'complex'>
+>>> 
+>>> 
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/monkey_patching.py =======
+My sources tell me that π = 3.14159265359
+And the area of circle of radius ten is: 314.159265359
+The area of the 1st triangle is None
+The area of the 2nd triangle is Oops, sorry about the negative inputs
+Solutions to 12x^2 + 23x + 10 = 0 are:
+(-0.6666666666666666, -1.25)
+Solutions to 12x^2 + 5x + 10 = 0 are:
+((-0.20833333333333334+0.8887803753208976j), (-0.20833333333333334-0.8887803753208976j))
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> d = {'raymond': 'red'}
+>>> d['raymond']
+'red'
+>>> 
+=============================== RESTART: Shell ===============================
+>>> d['raymond']
+
+Traceback (most recent call last):
+  File "<pyshell#125>", line 1, in <module>
+    d['raymond']
+NameError: name 'd' is not defined
+>>> import shelve
+>>> d = shelve.open('colors.pcl')
+>>> d['raymond'] = 'red'
+>>> d['rachel'] = 'blue'
+>>> 
+>>> d['raymond']
+'red'
+>>> d.keys()
+['raymond', 'rachel']
+>>> d.values()
+['red', 'blue']
+>>> d.items()
+[('raymond', 'red'), ('rachel', 'blue')]
+>>> 
+=============================== RESTART: Shell ===============================
+>>> import shelve
+>>> d = shelve.open('colors.pcl')
+>>> d.keys()
+[]
+>>> 
+>>> 
+>>> d['raymond'] = 'red'
+>>> d['rachel'] = 'blue'
+>>> d.close()
+>>> 
+=============================== RESTART: Shell ===============================
+>>> import shelve
+>>> d = shelve.open('colors.pcl')
+>>> d.items()
+[('raymond', 'red'), ('rachel', 'blue')]
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+False
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': 'asdf',
+ 'brandon': 'leah',
+ 'mike': 'bears',
+ 'raymondh': 'superman',
+ 'sergey': 'russia'}
+>>> import hashlib
+>>> hashlib.md5('hello world').digest()
+'^\xb6;\xbb\xe0\x1e\xee\xd0\x93\xcb"\xbb\x8fZ\xcd\xc3'
+>>> hashlib.md5('hello world').hexdigest()
+'5eb63bbbe01eeed093cb22bb8f5acdc3'
+>>> len(_)
+32
+>>> hashlib.sha1('hello world').hexdigest()
+'2aae6c35c94fcfb415dbe95f408b9ce91ee846ed'
+>>> len(_)
+40
+>>> hashlib.sha228('hello world').hexdigest()
+
+Traceback (most recent call last):
+  File "<pyshell#153>", line 1, in <module>
+    hashlib.sha228('hello world').hexdigest()
+AttributeError: 'module' object has no attribute 'sha228'
+>>> hashlib.sha256('hello world').hexdigest()
+'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9'
+>>> hashlib.sha512('hello world').hexdigest()
+'309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a9bcd3ca86d4cd86f989dd35bc5ff499670da34255b45b0cfd830e81f605dcf7dc5542e93ae9cd76f'
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> verify('mike', 'broncos')
+False
+>>> verify('mike', 'bears')
+True
+>>> pprint(userpass)
+{'austin': '\x91.\xc8\x03\xb2\xceI\xe4\xa5A\x06\x8dIZ\xb5p',
+ 'brandon': 'p\x07\xe0\xcd\x90\x8f\x10\xb9F\xfe\x03\xb5\x18\xd6\xbc\x1f',
+ 'mike': '\xf1\xd2\xaa\x17:\x8dl4\x8c0\xa96\xad\xc2\x12d',
+ 'raymondh': '\x84\xd9aV\x8ae\x07:;\xcf\x0e\xb2\x16\xb2\xa5v',
+ 'sergey': '\x1cb\\\xc8o\x82F`\xa3 \xd1\x85\x91n<U'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': '912ec803b2ce49e4a541068d495ab570',
+ 'brandon': '7007e0cd908f10b946fe03b518d6bc1f',
+ 'mike': 'f1d2aa173a8d6c348c30a936adc21264',
+ 'raymondh': '84d961568a65073a3bcf0eb216b2a576',
+ 'sergey': '1c625cc86f824660a320d185916e3c55'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> time.sleep(5); print 'Done'
+Done
+>>> import random
+>>> random.random()
+0.34011715492606287
+>>> random.random()
+0.030878323829701015
+>>> random.random() * 10
+9.350209900775178
+>>> random.random() * 10
+2.222084338554262
+>>> random.random() * 0.25
+0.18125595377760215
+>>> random.expovariate(5)
+0.08498243661408018
+>>> random.expovariate(5)
+0.2188309133684748
+>>> random.expovariate(5)
+0.13761719646224085
+>>> random.expovariate(5)
+0.1742611125625946
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> import random
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> 
+>>> 
+>>> 
+>>> pprint(userpass)
+{'austin': '912ec803b2ce49e4a541068d495ab570',
+ 'brandon': '7007e0cd908f10b946fe03b518d6bc1f',
+ 'mike': 'f1d2aa173a8d6c348c30a936adc21264',
+ 'raymondh': '84d961568a65073a3bcf0eb216b2a576',
+ 'sergey': '1c625cc86f824660a320d185916e3c55'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+password, 32027
+123456, 25969
+12345678, 8667
+1234, 5786
+qwerty, 5455
+12345, 4523
+dragon, 4321
+pussy, 3945
+baseball, 3739
+football, 3682
+letmein, 3536
+monkey, 3487
+696969, 3345
+abc123, 3310
+mustang, 3289
+michael, 3249
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 30, in <module>
+    print line,
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/idlelib/PyShell.py", line 1356, in write
+    return self.shell.write(s, self.tags)
+KeyboardInterrupt
+>>> line
+'michael, 3249\r\n'
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+['password', ' 32027\r\n']
+['123456', ' 25969\r\n']
+['12345678', ' 8667\r\n']
+['1234', ' 5786\r\n']
+['qwerty', ' 5455\r\n']
+['12345', ' 4523\r\n']
+['dragon', ' 4321\r\n']
+['pussy', ' 3945\r\n']
+['baseball', ' 3739\r\n']
+['football', ' 3682\r\n']
+['letmein', ' 3536\r\n']
+['monkey', ' 3487\r\n']
+['696969', ' 3345\r\n']
+['abc123', ' 3310\r\n']
+['mustang', ' 3289\r\n']
+['michael', ' 3249\r\n']
+['shadow', ' 3209\r\n']
+['master', ' 3182\r\n']
+['jennifer', ' 2581\r\n']
+['111111', ' 2570\r\n']
+['2000', ' 2550\r\n']
+['jordan', ' 2538\r\n']
+['superman', ' 2523\r\n']
+['harley', ' 2485\r\n']
+['1234567', ' 2479\r\n']
+['fuckme', ' 2378\r\n']
+['hunter', ' 2377\r\n']
+
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 30, in <module>
+    print line.split(',')
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/idlelib/PyShell.py", line 1356, in write
+    return self.shell.write(s, self.tags)
+KeyboardInterrupt
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+password
+123456
+12345678
+1234
+qwerty
+12345
+dragon
+pussy
+baseball
+football
+letmein
+monkey
+696969
+abc123
+mustang
+michael
+shadow
+master
+jennifer
+111111
+2000
+jordan
+superman
+harley
+1234567
+fuckme
+hunter
+fuckyou
+trustno1
+ranger
+buster
+thomas
+tigger
+robert
+soccer
+fuck
+batman
+test
+pass
+killer
+hockey
+george
+
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 31, in <module>
+    print password
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/idlelib/PyShell.py", line 1356, in write
+    return self.shell.write(s, self.tags)
+KeyboardInterrupt
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> len(rainbow_table)
+10000
+>>> pprint(userpass)
+{}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> pprint(userpass)
+{'austin': '912ec803b2ce49e4a541068d495ab570',
+ 'brandon': '7007e0cd908f10b946fe03b518d6bc1f',
+ 'mike': 'f1d2aa173a8d6c348c30a936adc21264',
+ 'raymondh': '84d961568a65073a3bcf0eb216b2a576',
+ 'sergey': '1c625cc86f824660a320d185916e3c55'}
+>>> pprint(rainbow_table.items()[:10])
+[('861836f13e3d627dfa375bdb8389214e', 'goldfish'),
+ ('67c35b0654107413e3a1dcbafa96a45c', 'longer'),
+ ('904fa0d9bfac311f6f5f7166d993ca5f', 'hydro'),
+ ('c1d79a0b9bdf65a2a057b41bd62fa707', 'russell1'),
+ ('9388c039bc8d47f07d19d12c969dcf2a', 'royalty'),
+ ('6862efb4028e93ac23a6f90a9055bae8', 'basil'),
+ ('a688a47ac73fb58ce3828bcb184cb157', '753951'),
+ ('ae26b05122a483ff6ff392fcedc8cc79', 'axeman'),
+ ('8ac20bf5803e6067a65165d9df51a8e7', 'muscle'),
+ ('add61aaba0a9331b4469b41a09401f14', 'diapers')]
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+>>> '912ec803b2ce49e4a541068d495ab570' in rainbow_table
+True
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+sergey --> russia
+mike --> bears
+austin --> asdf
+raymondh --> superman
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': '401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429080fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1',
+ 'brandon': 'd3e64c6137e04adb5198c5039c87383a538625b2e4ebe5ad96e4f5a1c32c123457c545dd3d3f23c1da6e4d5db7fa679cf27e6fad6f066d42c9f874b5880640b1',
+ 'mike': '54e01804966fc30c7f9026996c23ba71ae6779f6d376a7711a832666a11b4a1ab2aac51cdddc5c45d01cdc1ff31ce0c34c5cdc15f67668902be3a0f5019ad16a',
+ 'raymondh': '9ad0d01d1766bb60025ba3403e851d1493a1ce2f14bdcf14d198f4a49e083f4547a6e5f9908444aad02d8d2383fbc74af021c7ee797ea13254c6603de76291b8',
+ 'sergey': '5f966af64eac5140d63d1e18d55c2260a571245701ec8475e4d09f3327dea870db9d9092a88dcdabee901351a3fc6a8fdea63f2032e2f95f0c45be65cdebe170'}
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> all([True, True, True])
+True
+>>> all([True, False, True])
+False
+>>> any([True, False, True])
+True
+>>> any([False, False, False])
+False
+>>> # All some no
+>>> 
+>>> 
+>>> ord('A')
+65
+>>> ord('a')
+97
+>>> map(ord, 'Raymond')
+[82, 97, 121, 109, 111, 110, 100]
+>>> 'hello'.islower()
+True
+>>> 'hello'.isdigit()
+False
+>>> '123'.isdigit()
+True
+>>> 'HELLO'.isupper()
+True
+>>> 'HELLO'.istitle()
+False
+>>> 'Hello'.istitle()
+True
+>>> map(str.islower, 'Raymond')
+[False, True, True, True, True, True, True]
+>>> any(map(str.islower, 'Raymond'))
+True
+>>> any(map(str.isupper, 'Raymond'))
+True
+>>> any(map(str.isdigit, 'Raymond'))
+False
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 34, in <module>
+    new_account('raymondh', 'superman')
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 22, in new_account
+    verify_strong(password)
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 19, in verify_strong
+    raise ValueError('Weak password:  Must be 6 character with upper and lowercase letters and digits')
+ValueError: Weak password:  Must be 6 character with upper and lowercase letters and digits
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 34, in <module>
+    new_account('raymondh', 'Superman')
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 22, in new_account
+    verify_strong(password)
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 19, in verify_strong
+    raise ValueError('Weak password:  Must be 6 character with upper and lowercase letters and digits')
+ValueError: Weak password:  Must be 6 character with upper and lowercase letters and digits
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 36, in <module>
+    new_account('mike', 'bears')
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 22, in new_account
+    verify_strong(password)
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 19, in verify_strong
+    raise ValueError('Weak password:  Must be 6 character with upper and lowercase letters and digits')
+ValueError: Weak password:  Must be 6 character with upper and lowercase letters and digits
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 37, in <module>
+    new_account('brandon', 'leah')
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 22, in new_account
+    verify_strong(password)
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 19, in verify_strong
+    raise ValueError('Weak password:  Must be 6 character with upper and lowercase letters and digits')
+ValueError: Weak password:  Must be 6 character with upper and lowercase letters and digits
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 37, in <module>
+    new_account('brandon', 'leah19')
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 22, in new_account
+    verify_strong(password)
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 19, in verify_strong
+    raise ValueError('Weak password:  Must be 6 character with upper and lowercase letters and digits')
+ValueError: Weak password:  Must be 6 character with upper and lowercase letters and digits
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 37, in <module>
+    new_account('brandon', 'leah19')
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 22, in new_account
+    verify_strong(password)
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 19, in verify_strong
+    raise ValueError('Weak password:  Must be 6 character with upper and lowercase letters and digits')
+ValueError: Weak password:  Must be 6 character with upper and lowercase letters and digits
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+False
+False
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> 
+=============================== RESTART: Shell ===============================
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> map(type, range(10))
+[<type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>, <type 'int'>]
+>>> str(123)
+'123'
+>>> map(str, range(10))
+['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+>>> map(str, range(10)) + ['']
+['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '']
+>>> 
+>>> 
+>>> password = 'dragon'
+>>> password.title()
+'Dragon'
+>>> password.title().swapcase()
+'dRAGON'
+>>> password[:-1]
+'drago'
+>>> password[:-1] + password[-1]
+'dragon'
+>>> password[:-1] + password[-1].swapcase()
+'dragoN'
+>>> case_variants = [password, password.title(), password.title().swapcase(), password[:-1] + password[-1].swapcase(),
+		 (password[:-1] + password[-1].swapcase()).swapcase()]
+>>> case_variants
+['dragon', 'Dragon', 'dRAGON', 'dragoN', 'DRAGOn']
+>>> len(_)
+5
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/password_cracker.py", line 61, in <module>
+    case_variants = [password, password.title(), password.title().swapcase(), password[:-1] + password[-1].swapcase(),
+NameError: name 'password' is not defined
+>>> 
+>>> 
+>>> 10000 * 11 * 1001 * 6
+660660000
+>>> 
+>>> 
+>>> for x in 'abc':
+	for y in 'def':
+		print x, y
+
+		
+a d
+a e
+a f
+b d
+b e
+b f
+c d
+c e
+c f
+>>> for x in 'abc':
+	for y in 'def':
+		for z in 'ghi':
+			print x, y, z
+
+			
+a d g
+a d h
+a d i
+a e g
+a e h
+a e i
+a f g
+a f h
+a f i
+b d g
+b d h
+b d i
+b e g
+b e h
+b e i
+b f g
+b f h
+b f i
+c d g
+c d h
+c d i
+c e g
+c e h
+c e i
+c f g
+c f h
+c f i
+>>> from itertools import *
+>>> list(product('abc', 'def'))
+[('a', 'd'), ('a', 'e'), ('a', 'f'), ('b', 'd'), ('b', 'e'), ('b', 'f'), ('c', 'd'), ('c', 'e'), ('c', 'f')]
+>>> list(product('ab', 'cd', 'efg'))
+[('a', 'c', 'e'), ('a', 'c', 'f'), ('a', 'c', 'g'), ('a', 'd', 'e'), ('a', 'd', 'f'), ('a', 'd', 'g'), ('b', 'c', 'e'), ('b', 'c', 'f'), ('b', 'c', 'g'), ('b', 'd', 'e'), ('b', 'd', 'f'), ('b', 'd', 'g')]
+>>> range(2)
+[0, 1]
+>>> for t in product(range(2), range(2), range(2)):
+	print t
+
+	
+(0, 0, 0)
+(0, 0, 1)
+(0, 1, 0)
+(0, 1, 1)
+(1, 0, 0)
+(1, 0, 1)
+(1, 1, 0)
+(1, 1, 1)
+>>> for t in product(range(2), range(2), range(2), range(2)):
+	print t
+
+	
+(0, 0, 0, 0)
+(0, 0, 0, 1)
+(0, 0, 1, 0)
+(0, 0, 1, 1)
+(0, 1, 0, 0)
+(0, 1, 0, 1)
+(0, 1, 1, 0)
+(0, 1, 1, 1)
+(1, 0, 0, 0)
+(1, 0, 0, 1)
+(1, 0, 1, 0)
+(1, 0, 1, 1)
+(1, 1, 0, 0)
+(1, 1, 0, 1)
+(1, 1, 1, 0)
+(1, 1, 1, 1)
+>>> for t in product(range(2), repeat=5):
+	print t
+
+	
+(0, 0, 0, 0, 0)
+(0, 0, 0, 0, 1)
+(0, 0, 0, 1, 0)
+(0, 0, 0, 1, 1)
+(0, 0, 1, 0, 0)
+(0, 0, 1, 0, 1)
+(0, 0, 1, 1, 0)
+(0, 0, 1, 1, 1)
+(0, 1, 0, 0, 0)
+(0, 1, 0, 0, 1)
+(0, 1, 0, 1, 0)
+(0, 1, 0, 1, 1)
+(0, 1, 1, 0, 0)
+(0, 1, 1, 0, 1)
+(0, 1, 1, 1, 0)
+(0, 1, 1, 1, 1)
+(1, 0, 0, 0, 0)
+(1, 0, 0, 0, 1)
+(1, 0, 0, 1, 0)
+(1, 0, 0, 1, 1)
+(1, 0, 1, 0, 0)
+(1, 0, 1, 0, 1)
+(1, 0, 1, 1, 0)
+(1, 0, 1, 1, 1)
+(1, 1, 0, 0, 0)
+(1, 1, 0, 0, 1)
+(1, 1, 0, 1, 0)
+(1, 1, 0, 1, 1)
+(1, 1, 1, 0, 0)
+(1, 1, 1, 0, 1)
+(1, 1, 1, 1, 0)
+(1, 1, 1, 1, 1)
+>>> 
+>>> 
+>>> map(ord, 'Raymond')
+[82, 97, 121, 109, 111, 110, 100]
+>>> imap(ord, 'Raymond')
+<itertools.imap object at 0x103887610>
+>>> it = imap(ord, 'Raymond')
+>>> next(it)
+82
+>>> next(it)
+97
+>>> next(it)
+121
+>>> next(it)
+109
+>>> it = imap(str.isupper, 'Raymond')
+>>> next(it)
+True
+>>> next(it)
+False
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': 'd886d0a90f564bfb72aa99a7b401fbf7fbb67c6774cc6472f3c8b2b6545036a1afe25b42b087cf0cc2388a7f407486239508d289656c92f6d90dfb3ec39b920c',
+ 'brandon': '837745509e82d8b6b7e5543ad5354f0107edbae8fdab3b60f44cbc5e06900115043d39e4aa41efccc9dfad0979882076b6c1d487f2598a6b5aaa7cd15f244ac4',
+ 'mike': '3c0f0049939966422b6a160016144a0556a222473e26b06b170f17540a876c413c4685361e94af4caefe2475a4dcb755daf81fcc7f1636e3668aa99a78e329bb',
+ 'raymondh': '9b02df9223af2fcae087648068fcdb3f8ee0e7aa4a0cb338516d975287af26da6af109fd47dde8244e660f95556668ac8df3453609b377d57fd96e08e0dfeff9',
+ 'sergey': '234c3b54b17e03429438ce9801381a1f4066789cc82a4f17ea6bdda041155e7a6230e4589e6fca8ddc207dfe9a7bc6af5814f82e112640bd936a8f5c201b896d'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': '62c0e3105cb5e4fb29baa097a20cbb9f8ecd80af605dc70cc41fb63de6e466c5',
+ 'brandon': '2062ddb8b69510d2bb9af8c70f373aad721a374a7c859c55c6696e1ab4a5ab60',
+ 'mike': '1d646de148a89bf300518a16bacb12c786a28d79c9fd24b5ed846e1cf55b96b8',
+ 'raymondh': '554a74225a6b9b3b1ab76a827a29a3e2af7c7ebb608f0ec5eb353b3764c711fe',
+ 'sergey': '45d44c6608aa6c3de0980743c3d7f453410405bb09fe3c288212b9ef016eb677'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': '25d73583ac6baf5491fa60d60ae034ba',
+ 'brandon': 'ca290f99738955cd92f458b9b3d7a43d',
+ 'mike': '91a9ec831aa9316b72e473c4cbe36ed3',
+ 'raymondh': 'db4675c9e28027ec7fadc7feddaa8283',
+ 'sergey': 'f1528a3cc25f7ce3b0b618bfb7dc2364'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+>>> pprint(userpass)
+{'austin': 'e7eb4544e06c61d666327c84b93a864c',
+ 'brandon': 'd59e5a6a6e926208b381fe8b04a4eccd',
+ 'mike': '3beb03215646f46084954b925d737931',
+ 'raymondh': 'e8acb06157a74823eda109e62e36d4eb',
+ 'sergey': 'ad515496ba46f5e9b4c43a956721200c'}
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> pprint(userpass)
+{'austin': 'e7eb4544e06c61d666327c84b93a864c',
+ 'brandon': 'd59e5a6a6e926208b381fe8b04a4eccd',
+ 'mike': '3beb03215646f46084954b925d737931',
+ 'raymondh': 'e8acb06157a74823eda109e62e36d4eb',
+ 'sergey': 'ad515496ba46f5e9b4c43a956721200c'}
+>>> 
+>>> [x**2 for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> 
+>>> {10, 20, 30, 20, 10}
+set([10, 20, 30])
+>>> [x**2 for x in range(-10, 11)]
+[100, 81, 64, 49, 36, 25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+>>> {x**2 for x in range(-10, 11)}
+set([64, 1, 100, 0, 49, 9, 16, 81, 25, 4, 36])
+>>> g = (x**2 for x in xrange(10))
+>>> g
+<generator object <genexpr> at 0x101711140>
+>>> next(g)
+0
+>>> next(g)
+1
+>>> next(g)
+4
+>>> next(g)
+9
+>>> next(g)
+16
+>>> {10, 20, 30, 20, 10}
+set([10, 20, 30])
+>>> {10: 'ten', 20: 'twenty'}
+{10: 'ten', 20: 'twenty'}
+>>> {x**2 : x for x in range(-10, 11)}
+{64: 8, 1: 1, 100: 10, 0: 0, 49: 7, 9: 3, 16: 4, 81: 9, 25: 5, 4: 2, 36: 6}
+>>> 
+>>> 
+>>> d = {x**2 : x for x in range(-10, 11)}
+>>> d.keys()
+[64, 1, 100, 0, 49, 9, 16, 81, 25, 4, 36]
+>>> d.values()
+[8, 1, 10, 0, 7, 3, 4, 9, 5, 2, 6]
+>>> d.items()
+[(64, 8), (1, 1), (100, 10), (0, 0), (49, 7), (9, 3), (16, 4), (81, 9), (25, 5), (4, 2), (36, 6)]
+>>> for k, v in d.items():
+	print k, '-->', v
+
+	
+64 --> 8
+1 --> 1
+100 --> 10
+0 --> 0
+49 --> 7
+9 --> 3
+16 --> 4
+81 --> 9
+25 --> 5
+4 --> 2
+36 --> 6
+>>> 
+>>> 
+>>> d = {x**2 : x for x in range(-10, 11)}
+>>> {v : k for k, v in d.items()}
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+>>> d
+{64: 8, 1: 1, 100: 10, 0: 0, 49: 7, 9: 3, 16: 4, 81: 9, 25: 5, 4: 2, 36: 6}
+>>> from collections import defaultdict
+>>> d = defaultdict(list)
+>>> list()
+[]
+>>> 
+>>> 
+>>> from collections import defaultdict
+>>> d = defaultdict(list)
+>>> d['dragons']
+[]
+>>> d
+defaultdict(<type 'list'>, {'dragons': []})
+>>> d = defaultdict(list)
+>>> d['dragons'].append('drogon')
+>>> d
+defaultdict(<type 'list'>, {'dragons': ['drogon']})
+>>> d['dragons'].append('ragar')
+>>> 
+>>> d
+defaultdict(<type 'list'>, {'dragons': ['drogon', 'ragar']})
+>>> d = {x**2 : x for x in range(-10, 11)}
+>>> {v : k for k, v in d.items()}
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+>>> pprint(userpass)
+{'austin': 'e7eb4544e06c61d666327c84b93a864c',
+ 'brandon': 'd59e5a6a6e926208b381fe8b04a4eccd',
+ 'mike': '3beb03215646f46084954b925d737931',
+ 'raymondh': 'e8acb06157a74823eda109e62e36d4eb',
+ 'sergey': 'ad515496ba46f5e9b4c43a956721200c'}
+>>> passuser = {hashpass : user for user, hashpass in userpass.items()}
+>>> pprint(passuser)
+{'3beb03215646f46084954b925d737931': 'mike',
+ 'ad515496ba46f5e9b4c43a956721200c': 'sergey',
+ 'd59e5a6a6e926208b381fe8b04a4eccd': 'brandon',
+ 'e7eb4544e06c61d666327c84b93a864c': 'austin',
+ 'e8acb06157a74823eda109e62e36d4eb': 'raymondh'}
+>>> 
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+raymondh --> Superman7
+austin --> Asdfasdf123
+sergey --> 3russiA
+mike --> 1Bears
+
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+raymondh --> Superman7
+
+======= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker.py =======
+True
+True
+
+=============================== RESTART: Shell ===============================
+>>> 
+= RESTART: /Users/raymond/Dropbox/Public/dm4/password_cracker_on_steroids.py =
+True
+True
+>>> 512 / 8
+64
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+100103
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+[100103, 47458, 19210, 5985, 13999, 82078, 56977, 259870]
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+100103
+47458
+19210
+5985
+13999
+82078
+57299
+261146
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+100103
+47458
+19210
+5985
+13999
+82078
+57336
+260913
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.cnn.com', 100103)
+('http://www.python.org', 47458)
+('http://www.jython.org', 19210)
+('http://www.pypy.org', 5985)
+('http://www.perl.org', 13999)
+('http://www.cisco.com', 82078)
+('http://www.facebook.com', 57261)
+('http://www.twitter.com', 260408)
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.cnn.com', 100103)
+('http://www.python.org', 47458)
+('http://www.jython.org', 19210)
+('http://www.pypy.org', 5985)
+('http://www.perl.org', 13999)
+('http://www.cisco.com', 82078)
+('http://www.facebook.com', 57333)
+('http://www.twitter.com', 260414)
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.cnn.com', 100103)
+('http://www.python.org', 47458)
+('http://www.jython.org', 19210)
+('http://www.pypy.org', 5985)
+('http://www.perl.org', 13999)
+('http://www.cisco.com', 82078)
+('http://www.facebook.com', 57240)
+('http://www.twitter.com', 260185)
+>>> 
+>>> 
+>>> 
+>>> import random
+>>> cards = ['ace', 'jack', 'deuce', 'king']
+>>> random.shuffle(cards)
+>>> cards
+['jack', 'deuce', 'king', 'ace']
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py", line 86, in <module>
+    for tup in myimap_unordered(site_size, sites):
+  File "/Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py", line 82, in myimap_unordered
+    sites = list(sites)
+UnboundLocalError: local variable 'sites' referenced before assignment
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.perl.org', 13999)
+('http://www.cisco.com', 82078)
+('http://www.cnn.com', 100103)
+('http://www.pypy.org', 5985)
+('http://www.jython.org', 19210)
+('http://www.facebook.com', 57269)
+('http://www.twitter.com', 261159)
+('http://www.python.org', 47458)
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.cnn.com', 99371)
+('http://www.python.org', 47458)
+('http://www.jython.org', 19210)
+('http://www.pypy.org', 5985)
+('http://www.perl.org', 13999)
+('http://www.cisco.com', 82078)
+('http://www.facebook.com', 57367)
+('http://www.twitter.com', 261203)
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.cnn.com', 99371)
+('http://www.python.org', 47458)
+('http://www.jython.org', 19210)
+('http://www.pypy.org', 5985)
+('http://www.perl.org', 13999)
+('http://www.cisco.com', 82078)
+('http://www.facebook.com', 57219)
+('http://www.twitter.com', 261228)
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py", line 102, in <module>
+    for tup in pool.imap_underordered(site_size, sites):
+AttributeError: 'ThreadPool' object has no attribute 'imap_underordered'
+>>> 
+===== RESTART: /Users/raymond/Dropbox/Public/dm4/multiprocessing_demo.py =====
+('http://www.cnn.com', 99371)
+('http://www.pypy.org', 5985)
+('http://www.cisco.com', 82078)
+('http://www.jython.org', 19210)
+('http://www.perl.org', 13999)
+('http://www.facebook.com', 57242)
+('http://www.python.org', 47458)
+('http://www.twitter.com', 261223)
+>>> 
+>>> 
+>>> 
