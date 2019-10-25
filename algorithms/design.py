@@ -243,7 +243,7 @@ class TicTacToe:
         return 0
 
 
-# Snakegame
+# Snakegame: Google
 # https://leetcode.com/problems/design-snake-game
 # Use deque to store snake, pop food from queue
 class SnakeGame:
@@ -452,22 +452,4 @@ current freq and put into new freq hashmap
 is in min, if no min key left, increase min
 - when decrease key, move key to new count, if current key is in max, check if
 no max key left, decrease max, if key is in min, update min
-'''
-
-'''
-Insert delete get random by frequency
-- https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/
-- Use list to store insert, hashmap set to store index of same element
-- Insert: append element, add to hashmap index of it
-- Remove: pop last index from hashmap set, swap value of last element to index
-n - 1, and update indices for last element
-- Get random: use normal random function
-'''
-
-'''
-Find median in infinite data stream
-- https://leetcode.com/problems/find-median-from-data-stream/
-- Use 2 heaps max heap lo and min heap hi
-- Add element: offer to lo, and pop 1 element from lo to hi, if length of hi
-larger than lo, pop from hi and offer to lo
 '''

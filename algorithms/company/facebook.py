@@ -503,7 +503,7 @@ def subarraySum(self, nums, k):
 
 
 # Move zeroes, 2 index running, assign low index to non-zero values
-# assign the rest numbers to zeroes
+# assign the rest numbers to zeroes, move to right
 # https://leetcode.com/submissions/detail/160603738/
 def moveZeroes(nums):
     """

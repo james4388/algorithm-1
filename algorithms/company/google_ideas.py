@@ -1,16 +1,4 @@
-'''
-499)
-- The maze 3
-- HARD: https://leetcode.com/problems/the-maze-iii/
-- Ball can only change direction if it hits the wall
 
-- Use BFS: check for possible directions of balls, add into queue
- (x, y, direction, step), pop an item from queue, then move it in direction
-until next wall and increase step, select next direction so that ball not going
-back, while moving ball if it drop into hole remove it and compare number of
-step, if less than current or equal and smaller lexicographically
-
-'''
 
 
 '''
@@ -177,11 +165,6 @@ always even
 '''
 
 '''
-727) https://leetcode.com/problems/minimum-window-subsequence/discuss/188265/Python-O(T*log(S))-Solution
-- Minimum window substring: store indices of each character
-'''
-
-'''
 115) https://leetcode.com/problems/distinct-subsequences/
 - String s and t: x1...xi and y1...yj
 - if xi == yj: dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
@@ -189,35 +172,10 @@ always even
 - base case: dp[i][0] = 1, dp[0][j] = 0, dp[0][0] = 1
 '''
 
-'''
-815) https://leetcode.com/problems/bus-routes/
-- Find minimum bus to reach from start to end
-- Make edge from bus i to bus j if there's connected station
-- Find start station and end station in which bus routes
-- Do BFS and count how many different bus route from start station bus
-'''
-
-'''
-679) https://leetcode.com/problems/24-game/
-- DFS for 3 operations, choose 2 of them for +, -, *, / and get result append
-'''
 
 '''
 354) https://leetcode.com/problems/russian-doll-envelopes
 - RussianDoll envelop: find maximum envelop can fit into size
 - sort envelopes, loop through sorted list, use binary search to find insert
 point
-'''
-
-'''
-403) https://leetcode.com/problems/frog-jump/
-- Frog jump: k - 1, k, k + 1 step from previous jump
-- Use hash table to store previous jump to reach current stone
-- Find out which stone it can reach next for 3 ways jump
-'''
-
-'''
-68) https://leetcode.com/problems/text-justification
-- Text justification: calculate len of current word + previous length +
-number of word > maxWidth then stop, padding more space and add to result
 '''

@@ -1,5 +1,41 @@
 from collections import deque, defaultdict
 from heapq import heappop, heappush
+import bisect
+
+
+def optimalUtilization(deviceCapacity, foregroundAppList, backgroundAppList):
+    # WRITE YOUR CODE HERE
+    arr, searchArr = foregroundAppList, backgroundAppList
+
+    devices = defaultdict(list)
+    search = set()
+    for id, cap in searchArr:
+        devices[cap].append(id)
+        search.add(cap)
+
+    search = sorted(list(search))
+    res = []
+    current = 0
+
+    for id, cap in arr:
+        if cap > deviceCapacity:
+            continue
+
+        delta = deviceCapacity - cap
+        idx = bisect.bisect_right(search, delta)
+        if idx == 0:
+            continue
+        idx = idx - 1
+        val = search[idx] + cap
+        if val < current:
+            continue
+        if val > current:
+            res = [[id, background_id] for background_id in devices.get(search[idx], [])]
+            current = val
+        else:
+            for background_id in devices.get(search[idx], []):
+                res.append([id, background_id])
+    return res
 
 
 def integerToRoman(val):

@@ -387,32 +387,6 @@ def threeSum(nums):
 # print "three sum....", threeSum([0,2,2,3,0,1,2,3,-1,-4,2])
 
 
-# Phone letter combination list
-# https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
-def dfs_combine(m, idx, string, out):
-    if idx == len(m):
-        out.append(string)
-        return out
-
-    for char in m[idx]:
-        dfs_combine(m, idx + 1, string + char, out)
-
-
-def letterCombination(digits):
-    if not digits:
-        return []
-
-    string = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
-    m = [string[int(x)] for x in digits]
-    out = []
-
-    dfs_combine(m, 0, '', out)
-    return out
-
-
-# print letterCombination("246")
-
-
 # Remove n-th node from linkedlist
 def removeNthFromEnd(head, n):
     """
@@ -1244,96 +1218,6 @@ def firstMissingPositive2(nums):
 # print "first missing positive...", firstMissingPositive2([3, 4, -1, 1])
 
 
-# word ladder
-# https://leetcode.com/problems/word-ladder/discuss/40729/Compact-Python-solution
-class WordSolution(object):
-    def addNextWords(self, word, h, tmp):
-        for i in range(len(word)):
-            for ch in string.ascii_letters:
-                nw = word[:i] + ch + word[i+1:]
-                if nw in h:
-                    tmp.append(nw)
-                    h.pop(nw)
-
-    def ladderLength(self, beginWord, endWord, wordList):
-        """
-        :type beginWord: str
-        :type endWord: str
-        :type wordList: List[str]
-        :rtype: int
-        """
-        if not wordList:
-            return 0
-
-        q = deque([beginWord])
-        count = 0
-        h = {w: 1 for w in wordList}
-        h.pop(beginWord, None)
-
-        while q:
-            count += 1
-            tmp = []
-            while q:
-                word = q.popleft()
-                if word == endWord:
-                    return count
-                self.addNextWords(word, h, tmp)
-            q = deque(tmp)
-        return 0
-
-# print "word ladder...", WordSolution().ladderLength('a', 'b', ['a', 'b', 'c'])
-
-
-# Surrounded region
-# Look for O in edge, and do BFS to flip to H
-# Turn remain O to X, H to O
-# https://leetcode.com/problems/surrounded-regions/description/
-class SurroundSolution(object):
-    def bfs(self, board, x, y):
-        board[x][y] = 'H'
-        q = deque([(x, y)])
-        dirs = [(0, -1), (0, 1), (1, 0), (-1, 0)]
-
-        while q:
-            i, j = q.popleft()
-            for d in dirs:
-                nx, ny = i + d[0], j + d[1]
-                if (0 < nx < len(board) and 0 < ny < len(board[0]) and
-                    board[nx][ny] == 'O'):
-                    board[nx][ny] = 'H'
-                    q.append((nx, ny))
-
-    def solve(self, board):
-        """
-        :type board: List[List[str]]
-        :rtype: void Do not return anything, modify board in-place instead.
-        """
-        if not board:
-            return
-        m = len(board)
-        n = len(board[0])
-
-        for i in range(m):
-            if board[i][0] == 'O':
-                self.bfs(board, i, 0)
-            if board[i][n-1] == 'O':
-                self.bfs(board, i, n-1)
-
-        for j in range(n):
-            if board[0][j] == 'O':
-                self.bfs(board, 0, j)
-
-            if board[m-1][j] == 'O':
-                self.bfs(board, m-1, j)
-
-        for i in range(m):
-            for j in range(n):
-                if board[i][j] == 'O':
-                    board[i][j] = 'X'
-                elif board[i][j] == 'H':
-                    board[i][j] = 'O'
-
-
 # Partition to k equal sum
 # https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/
 # arr = [1, 2, 3, 4, 5], k = 3 => (1, 4), (2, 3), (5)
@@ -1435,77 +1319,6 @@ class NSolution(object):
         return ''.join([str(y) for y in m])
 
 
-# Wiggle sort 2
-# https://leetcode.com/problems/wiggle-sort-ii/description/
-def wiggleSort(nums):
-    """
-    :type nums: List[int]
-    :rtype: void Do not return anything, modify nums in-place instead.
-    """
-    if not nums or len(nums) <= 1:
-        return
-    nums.sort()
-    n = len(nums)
-
-    m = n/2
-    for i in range(m+1):
-        if i % 2 and m+i < n:
-            nums[i], nums[m+i] = nums[m+i], nums[i+i]
-
-# print "wiggle sort...", wiggleSort([1, 5, 1, 1, 6, 4])
-
-
-# Print spiral matrix
-# https://leetcode.com/problems/spiral-matrix/description/
-def printLayer(matrix, layer, res):
-    startx, endx = layer, len(matrix) - layer - 1
-    starty, endy = layer, len(matrix[0]) - layer - 1
-
-    i, j = startx, starty
-    if startx == endx and starty == endy:
-        res.append(matrix[startx][starty])
-        return
-
-    while j <= endy:
-        res.append(matrix[i][j])
-        j += 1
-
-    i, j = startx + 1, endy
-    while i <= endx:
-        res.append(matrix[i][j])
-        i += 1
-
-    i, j = endx, endy - 1
-    if startx != endx:
-        while j >= starty:
-            res.append(matrix[i][j])
-            j -= 1
-
-    i, j = endx - 1, starty
-    if starty != endy:
-        while i > startx:
-            res.append(matrix[i][j])
-            i -= 1
-
-
-def spiralOrder(matrix):
-    """
-    :type matrix: List[List[int]]
-    :rtype: List[int]
-    """
-    if not matrix:
-        return []
-
-    res = []
-    l = min(len(matrix), len(matrix[0]))
-    layers = l/2 + 1 if l % 2 else l/2
-    for layer in range(layers):
-        printLayer(matrix, layer, res)
-    return res
-
-print "spiral matrix....", spiralOrder([[6, 7, 9]])
-
-
 # calculation
 # https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
 def doCal(v1, v2, op):
@@ -1559,31 +1372,6 @@ def numSquares(n):
     return dp[n]
 
 
-# Find minimum sum path in triangle
-# https://leetcode.com/problems/triangle/description/
-# Process level by level, for each element it can add previous row with same
-# column j or j - 1, except at index 0 and n-1
-def triangle(numlist):
-    if not numlist:
-        return -1
-
-    curr = numlist[0]
-    n = len(numlist)
-    for i in range(1, n):
-        tmp = numlist[i]
-        for j in range(len(tmp)):
-            if j == 0:
-                tmp[j] += curr[j]
-            elif j == len(tmp) - 1:
-                tmp[j] += curr[j-1]
-            else:
-                tmp[j] += min(curr[j], curr[j-1])
-        curr = tmp
-    return min(curr)
-
-print "triangle....", triangle([[2], [3, 4], [6, 5, 7], [4, 1, 3, 8]])
-
-
 # Maximal rectangle, give matrix with 0 and 1 return max rectangle contains
 # only 1
 # https://leetcode.com/problems/maximal-rectangle/description/
@@ -1614,43 +1402,6 @@ def maximalRectangle(matrix):
             area = h[idx] * l
             res = max(res, area)
     return res
-
-
-# https://leetcode.com/problems/decode-string/description/
-# example 3[a2[c]e]2[df] -> acceacceaccedfdf
-# use stack, push char into stack, if [ append current num, if ] pop stack
-# if pop item is number, then multiple char, if not, concatinate item to
-# current char, append char to stack
-def decodeString(s):
-    """
-    :type s: str
-    :rtype: str
-    """
-    stack = []
-    num = ''
-    char = ''
-    for c in s:
-        if c.isdigit():
-            num += c
-            if char:
-                stack.append(char)
-                char = ''
-        elif c == '[':
-            stack.append(num)
-            num = ''
-        elif c == ']':
-            while stack:
-                n = stack.pop()
-                if n.isdigit():
-                    char = int(n) * char
-                    break
-                else:
-                    char = n + char
-            stack.append(char)
-            char = ''
-        else:
-            char += c
-    return ''.join(stack)
 
 
 # https://leetcode.com/problems/pancake-sorting/
