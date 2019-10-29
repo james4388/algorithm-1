@@ -4,15 +4,33 @@ from collections import defaultdict
 # Character replacement
 # https://leetcode.com/problems/longest-repeating-character-replacement/
 # Find longest repeating substring created by replacing k chars
-# use counter to count number of character in current window
+# Solution: use counter to count number of character in current window
 # if number of difference exceed k, move low pointer to next character
 # and substract count, re-calculate number of different chars
 # Edge case: number of difference does not exceed k and pointer reach end
 # => move back low pointer
+
 # Second solution: sliding window, counter to count char, update most
 # frequent char in window, diff = end - start + 1 - maxFrequent
 # if diff exceeds k, move s and decrease counter,
 # update length = end - start + 1
+def characterReplacement(s, k):
+    start, end = 0, 0
+    maxCount = 0
+    counter = defaultdict(int)
+    ans = 0
+
+    for end in range(len(s)):
+        counter[s[end]] += 1
+        maxCount = max(maxCount, counter[s[end]])
+
+        while end - start - maxCount + 1 > k:
+            counter[s[start]] -= 1
+            start += 1
+        ans = max(ans, end - start + 1)
+    return ans
+
+
 def characterReplacement(s, k):
     counter = defaultdict(int)
     count = 0
@@ -38,8 +56,7 @@ def characterReplacement(s, k):
         hi += 1
 
     while count <= k and lo >= 0:
-        if s[lo] != k:
-            count += 1
+        count += 1
         lo -= 1
 
     ans = max(ans, hi - lo - 1)

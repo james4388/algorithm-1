@@ -1,3 +1,4 @@
+import itertools
 
 
 # Rectangle area
@@ -16,12 +17,22 @@ def computeArea(A, B, C, D, E, F, G, H):
 
 # Rectangle area 2
 # https://leetcode.com/problems/rectangle-area-ii/solution/
-# - Solution 1: sorted x and y list, remap x, y to its index
-# use 2D array to fill in cell covered by rectangle, grid[x][y] = 1 for x in
-# map[x1], map[x2] and y in mapy[y1], mapy[y2]
-# if grid = 1, calculate area, => run time: O(n^3)
-# - Solution 2: line sweep
-# Consider every rec as 2 layers, (x1, x2) open at y1 and (x1, x2) close at y2
-# sort every open and close layers by y, calculate area for each layer y
-# (x1, x2), (x3, x4)...xk => area = sum(x different) * (y - previous y)
-# Optimize: use segment tree to add or remove layers => nlog(n)
+# Area(B, C, D) = B + C + D - BC - CD - BD + BCD
+def rectangleArea(self, rectangles):
+    def intersect(rec1, rec2):
+        return [max(rec1[0], rec2[0]),
+                max(rec1[1], rec2[1]),
+                min(rec1[2], rec2[2]),
+                min(rec1[3], rec2[3])]
+
+    def area(rec):
+        dx = max(0, rec[2] - rec[0])
+        dy = max(0, rec[3] - rec[1])
+        return dx * dy
+
+    ans = 0
+    for size in xrange(1, len(rectangles) + 1):
+        for group in itertools.combinations(rectangles, size):
+            ans += (-1) ** (size + 1) * area(reduce(intersect, group))
+
+    return ans % (10**9 + 7)

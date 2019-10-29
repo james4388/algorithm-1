@@ -8,7 +8,8 @@
 # - Solution 2: for range (s, e), calculate how more point player 1 than play 2
 # max nums[s] - winner(s+1, e), nums[e] - winner(s, e - 1), use dictionary to
 # memorize => run time 0(n^2)
-# - Solution 3: use dynamic programing: dp[i][j] = max(nums[i] - dp[i+1][j],
+# - Solution 3: 
+# use dynamic programing: dp[i][j] = max(nums[i] - dp[i+1][j],
 # nums[j] - dp[i][j-1]) return dp[0][n-1] >= 0
 # Optimize: start filling from bottom right up, dp[4] = nums[4],
 # dp[3] = nums[3], then dp[4] = max(nums[4] - dp[3], nums[3] - dp[4]), so on...
@@ -32,7 +33,17 @@ class PredictSolution:
 
         return dfs(0, n-1, 0, 0, 0)
 
-    def winner(self, nums):
+    def winner2(self, nums):
+        n = len(nums)
+        dp = [[0]*n for i in range(n)]
+
+        for s in range(n - 1, -1, -1):
+            for e in range(s+1, n):
+                dp[s][e] = max(nums[s] - dp[s+1][e], nums[e] - dp[s][e-1])
+        return dp[0][n-1] >= 0
+
+
+    def winner3(self, nums):
         if not nums:
             return True
 
@@ -40,7 +51,6 @@ class PredictSolution:
         dp = [0 for _ in range(n)]
 
         for i in range(n-1, -1, -1):
-            dp[i] = nums[i]
             for j in range(i+1, n):
                 dp[j] = max(nums[i] - dp[j], nums[j] - dp[j-1])
         return dp[n-1] >= 0

@@ -4,7 +4,7 @@ from collections import defaultdict
 # Sentence similarity
 # Given 2 sentences, and pairs of similar word, check if 2 sentences are
 # similar, if word pair is transitive: A = B, B = C => A = C
-# use hash table, and dfs to check if 2 word similar
+# Solution: use hash table, and dfs to check if 2 word similar
 # https://leetcode.com/problems/sentence-similarity
 def areSentencesSimilar(words1, words2, pairs):
     if len(words1) != len(words2):
