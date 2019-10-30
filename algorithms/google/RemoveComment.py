@@ -4,7 +4,7 @@
 # Source contains list of lines
 # comment block: /*..*/ can span multiple line, and line //
 # Remove comment from code
-# Special case: 
+# Special case: /*/
 def removeComments(source):
     res = []
 
