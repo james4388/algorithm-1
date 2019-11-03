@@ -1,3 +1,4 @@
+from collections import defaultdict
 
 
 # Word square
@@ -28,7 +29,6 @@ class WordSquareSolution:
     def dfs(self, wordlist, root, n):
         if len(wordlist) == n:
             return wordlist
-
         # next word index
         curr = len(wordlist)
         node = root
@@ -72,5 +72,45 @@ class WordSquareSolution:
                 res.append(l)
         return res
 
-wq = WordSquareSolution()
-print "square word...", wq.wordSquare(['area', 'ball', 'dear', 'lady', 'lead', 'yard'])
+
+# Another way to implement trie using hashmap
+# Runtime: O(N*26^L) where L is length of word, O(N*L)
+class WordSquareMinimal:
+    def square(self, wordlist, invert, res):
+        if wordlist and len(wordlist) == len(wordlist[0]):
+            res.append(wordlist)
+            return
+        # Next word prefix is combination of all current word at index n
+        n = len(wordlist)
+        prefix = ''.join(word[n] for word in wordlist)
+
+        if prefix not in invert:
+            return
+
+        candidates = invert[prefix]
+        for word in candidates:
+            self.square(wordlist + [word], invert, res)
+
+    def wordSquares(self, words):
+        invert = defaultdict(set)
+        res = []
+        for word in words:
+            for i in range(len(word)):
+                invert[word[:i+1]].add(word)
+        candidates = []
+
+        # Find candidate for first word
+        # if all char in word appears as starting char in other words
+        for word in words:
+            for char in word:
+                if char not in invert:
+                    break
+            else:
+                candidates.append(word)
+
+        for word in candidates:
+            self.square([word], invert, res)
+        return res
+
+wq = WordSquareMinimal()
+print("square word...\n", wq.wordSquare(['area', 'ball', 'dear', 'lady', 'lead', 'yard']))
