@@ -30,3 +30,30 @@ def assignBikes(workers, bikes):
 if __name__ == '__main__':
     ans = assignBikes([[0,0],[1,1],[2,0]], [[1,0],[2,2],[2,1]])
     print("assigned...", ans)
+
+
+# https://leetcode.com/problems/campus-bikes-ii/
+# Find smallest possible distance for assigning bikes
+# Solution: use priority queue, store cost, nth worker, current used bikes list
+# pop one item from queue, find unused bike and assigned to nth worker, add back
+# into queue (use bit set to track used bikes)
+# M worker, N bikes: heap operation log(M*N) + N*log(M*N) ~= NlogN + MlogN
+# while loop: stop when there's at least M worker assigned, MNlogN + M^2logN = MN*log(MN)
+def assignBikes2(workers, bikes):
+    def dis(w, b):
+        return abs(w[0] - b[0]) + abs(w[1] - b[1])
+
+    queue = [(0, 0, 0)]
+    seen = set()
+    while True:
+        cost, i, taken = heappop(queue)
+        if (i, taken) in seen:
+            continue
+
+        seen.add((i, taken))
+        if i == len(worker):
+            return cost
+
+        for j in range(len(bikes)):
+            if taken & (1 << j) == 0:
+                heappush(queue, (cost + dis(workers[i], bikes[j]), i + 1, taken | (1 << j)))
