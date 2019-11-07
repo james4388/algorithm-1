@@ -7,7 +7,7 @@ from collections import defaultdict
 # Runtime: O(S*T)
 # Optimize: pre-process S to store index for each char in T
 # Try index from first char, use binary search for next char in T
-# Runtime: O(S + T + log(S))
+# Runtime: O(S + T + T*log(S))
 def minWindowSubsequence(S, T):
     chars = set(T)
     indices = defaultdict(list)

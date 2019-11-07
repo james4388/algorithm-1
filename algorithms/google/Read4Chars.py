@@ -1,7 +1,7 @@
 import random
 
 
-# Read 4 char
+# HARD: Read 4 char
 # https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times
 # Everytime call read4(buff) return number of char read
 # Write function read n characters using read4, call multiple times
@@ -17,35 +17,25 @@ def read4(buff):
 
 class Read4Solution(object):
     def __init__(self):
-        self.buffStr = []
-        self.readStr = 0
+        self.cache = deque()
 
-    def copy_from(self, buff):
-        idx = 0
-        length = read4(buff)
-        while idx < length:
-            self.buffStr.append(buff[idx])
-            idx += 1
-        self.readStr += length
-        return length
+    def copy(self):
+        buff = range(4)
+        read = read4(buff)
+        for i in range(read):
+            self.cache.append(buff[i])
+        return read
 
     def read(self, buff, n):
-        tmp = range(4)
-        length = self.copy_from(tmp)
+        read = -1
 
-        need_read = 0
-        if self.readStr < n:
-            need_read = n - self.readStr
+        while len(self.cache) < n and read != 0:
+            read = self.copy()
 
-        while need_read > 0 and length > 0:
-            length = self.copy_from(tmp)
-            need_read -= length
-
-        idx = 0
-        while idx < min(self.readStr, n):
-            buff[idx] = self.buffStr[idx]
-            idx += 1
-        return idx
+        total = min(len(self.cache), n)
+        for i in range(total):
+            buff[i] = self.cache.pop(left)
+        return total
 
 r4 = Read4Solution()
 # buff = list(range(1028))
