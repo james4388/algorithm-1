@@ -3,7 +3,7 @@
 # https://leetcode.com/problems/new-21-game/
 # Alice has 0  point, can draw from 1...W, until has K or more points
 # return probability to has N or less points
-# Solution: W = 3, prob(1) = prob(2) = prob(3) = 1/3
+# Solution: W = 3
 # prob(5) = prob(4) * 1/3 + prob(3) * 1/3 + prob(2) * 1/3
 # p(x) = (p(x-1) + p(x-2) + ... + p(x-w)) / w
 # Sliding window: maintain sum = p(x) if x > w => sum -= p(x-w-1)

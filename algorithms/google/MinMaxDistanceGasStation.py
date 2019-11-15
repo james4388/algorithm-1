@@ -17,15 +17,28 @@ def maxGasStationDistance(stations, K):
     n = len(stations)
     for i in range(n-1):
         d = stations[i+1] - stations[i]
-        distances.append([-d, 1, d])
+        heappush(distances, [-d, 1, d])
 
-    heapify(distances)
     for j in range(K):
         item = heappop(distances)
         prio, num, curr = item
         num += 1
         heappush(distances, [-(curr/num), num, curr])
-    prio, num, curr = heappop(distances)
-    return curr/num
+    return -distances[0][0]
+
+# Use binary search, find possible distance D that can use up to K station
+def minmaxGasDist(stations, K):
+    def possible(D):
+        return sum(int((stations[i+1] - stations[i]) / D)
+                   for i in xrange(len(stations) - 1)) <= K
+
+    lo, hi = 0, 10**8
+    while hi - lo > 1e-6:
+        mi = (lo + hi) / 2.0
+        if possible(mi):
+            hi = mi
+        else:
+            lo = mi
+    return lo
 
 print("max distance....", maxGasStationDistance([0, 4, 7, 12, 18, 20], 9))

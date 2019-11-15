@@ -10,28 +10,23 @@ def decodeString(s):
     :type s: str
     :rtype: str
     """
-    stack = []
-    num = ''
-    char = ''
-    for c in s:
-        if c.isdigit():
-            num += c
-            if char:
-                stack.append(char)
-                char = ''
-        elif c == '[':
-            stack.append(num)
-            num = ''
-        elif c == ']':
-            while stack:
-                n = stack.pop()
-                if n.isdigit():
-                    char = int(n) * char
-                    break
-                else:
-                    char = n + char
-            stack.append(char)
-            char = ''
+
+    currStr = ""
+    currNum = 0
+    arr = []
+    
+    for char in s:
+        if char == '[':
+            arr.append(currStr)
+            arr.append(currNum)
+            currStr = ""
+            currNum = 0
+        elif char == ']':
+            num = arr.pop()
+            prevStr = arr.pop()
+            currStr = prevStr + num * currStr
+        elif char.isdigit():
+            currNum = currNum * 10 + int(char)
         else:
-            char += c
-    return ''.join(stack)
+            currStr += char
+    return currStr
